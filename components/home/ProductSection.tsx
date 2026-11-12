@@ -31,7 +31,7 @@ export default function ProductSection({
   };
 
   return (
-    <section className="py-12 md:py-16">
+    <section className="py-8">
       <div className="mb-7 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
         <div>
           <span className="text-xs font-bold uppercase tracking-[0.2em] text-emerald-700">

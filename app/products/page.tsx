@@ -3,15 +3,16 @@ import {
   ArrowRight,
   BadgeCheck,
   Boxes,
-  Building2,
   ChevronRight,
   ShieldCheck,
+  ShoppingBag,
   Store,
   Truck,
 } from "lucide-react";
 
 import SiteLayout from "@/components/site-layout";
-import ShopClient from "@/components/shop-client";
+import { products } from "@/lib/data";
+import ProductCard from "@/components/product-card";
 
 export default function Products() {
   return (
@@ -111,7 +112,7 @@ export default function Products() {
         </section>
 
         {/* CATALOGUE INTRO */}
-        <section
+        {/* <section
           id="catalogue"
           className="scroll-mt-24 px-4 pt-12 sm:px-6 md:pt-16 lg:px-8"
         >
@@ -134,32 +135,81 @@ export default function Products() {
               </div>
             </div>
           </div>
-        </section>
+
+
+        </section> */}
+
+
+<section
+  id="catalogue"
+  className="scroll-mt-24 px-4 pb-20 pt-12 sm:px-6 md:pt-16 lg:px-8"
+>
+  <div className="mx-auto max-w-[1500px]">
+
+    {/* Catalogue heading */}
+    <div className="flex flex-col justify-between gap-6 border-b border-[#e1e8ee] pb-8 md:flex-row md:items-end">
+      <div>
+        <div className="mb-3 flex items-center gap-2 text-[10px] font-extrabold uppercase tracking-[0.18em] text-[#079b57]">
+          <span className="h-2 w-2 rounded-full bg-[#079b57]" />
+          Explore Our Collection
+        </div>
+
+        <h2 className="text-3xl font-black tracking-tight text-[#17242d] sm:text-4xl">
+          Shop Wholesale Products
+        </h2>
+
+        <p className="mt-3 max-w-2xl text-sm leading-7 text-[#6e7d87]">
+          Find products by brand, category or product range.
+          Search our catalogue to discover available wholesale inventory.
+        </p>
+      </div>
+
+      {/* Product count */}
+      <div className="flex items-center gap-3 self-start rounded-xl border border-[#e1e8ee] bg-white px-4 py-3 md:self-auto">
+        <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#e8f7ed] text-[#079b57]">
+          <ShoppingBag size={18} />
+        </div>
+
+        <div>
+          <p className="text-lg font-black leading-none text-[#17242d]">
+            {products.length}
+          </p>
+          <p className="mt-1 text-[10px] font-bold uppercase tracking-wider text-[#829099]">
+            Products available
+          </p>
+        </div>
+      </div>
+    </div>
+
+    {/* Products grid */}
+    {products.length > 0 ? (
+      <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        {products.map((product) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
+      </div>
+    ) : (
+      <div className="mt-10 rounded-2xl border border-dashed border-[#dce5df] bg-white px-6 py-16 text-center">
+        <ShoppingBag
+          size={36}
+          className="mx-auto text-[#079b57]"
+        />
+
+        <h3 className="mt-4 text-lg font-bold text-[#17242d]">
+          No products available
+        </h3>
+
+        <p className="mt-2 text-sm text-[#69756f]">
+          Please check back soon for new products.
+        </p>
+      </div>
+    )}
+
+  </div>
+</section>
+
 
         {/* PRODUCT FILTERS AND GRID */}
-        <section className="px-4 pb-14 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-[1500px]">
-            <div className="mb-5 flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
-              <div>
-                <h2 className="text-xl font-extrabold text-[#17242d]">
-                  All Products
-                </h2>
-                <p className="mt-1 text-xs text-[#6e7d87]">
-                  Browse and filter the available catalogue.
-                </p>
-              </div>
-
-              <span className="inline-flex w-fit items-center gap-2 rounded-full bg-[#e9f8ef] px-4 py-2 text-xs font-bold text-[#079b57]">
-                <BadgeCheck size={15} />
-                Wholesale Catalogue
-              </span>
-            </div>
-
-            //product list
-
-
-          </div>
-        </section>
 
         {/* TRADE CTA */}
         <section className="px-4 py-10 sm:px-6 md:py-14 lg:px-8">

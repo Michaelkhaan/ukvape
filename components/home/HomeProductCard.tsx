@@ -18,7 +18,7 @@ export default function HomeProductCard({ product, onClick }: Props) {
         href={`/products?search=${encodeURIComponent(product.name)}`}
         className="block"
       >
-        <div className="relative flex h-64 items-center justify-center overflow-hidden bg-gradient-to-b from-slate-50 to-white p-5">
+        <div className="relative flex h-40 items-center justify-center overflow-hidden bg-gradient-to-b from-slate-50 to-white p-5">
           {product.isNew && (
             <span className="absolute left-3 top-3 z-10 rounded-full bg-emerald-600 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white">
               New
@@ -34,9 +34,10 @@ export default function HomeProductCard({ product, onClick }: Props) {
           <Image
             src={product.image}
             alt={product.name}
-            width={260}
-            height={260}
-            className="h-full w-full object-contain transition duration-500 group-hover:scale-105"
+            width={0}
+            height={0}
+            unoptimized
+            className="w-full object-contain transition duration-500 group-hover:scale-105"
           />
         </div>
 

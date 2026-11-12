@@ -125,12 +125,12 @@ export default function Header() {
         </Link>
 
         {/* DESKTOP NAVIGATION */}
-        <nav className="hidden min-w-0 flex-1 items-center justify-center gap-5 md:flex 2xl:gap-5">
+        <nav className="hidden min-w-0 flex-1 items-center justify-center gap-8 md:flex 2xl:gap-5">
           {navItems.map((item) => (
             <Link
               key={item.label}
               href={item.href}
-              className={`relative whitespace-nowrap py-6 text-[15px] font-medium transition-colors duration-200
+              className={`relative whitespace-nowrap py-6 text-[15px] font-semibold! transition-colors duration-200
         ${
           isActive(item.href)
             ? "text-[#079b57] after:absolute after:bottom-0 after:left-0 after:h-[3px] after:w-full after:rounded-full after:bg-[#079b57]"
