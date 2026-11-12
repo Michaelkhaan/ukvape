@@ -149,7 +149,7 @@ interface PageProps {
   }>;
 }
 
-export const dynamicParams = true;
+// export const dynamicParams = true;
 
 export function generateStaticParams() {
   return brands.map((brand) => ({

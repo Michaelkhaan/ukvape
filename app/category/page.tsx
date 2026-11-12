@@ -123,6 +123,12 @@ const faqs = [
   },
 ];
 
+export function generateStaticParams() {
+  return [
+    { slug: "nic-pouches" },
+  ];
+}
+
 export default function NicPouchesPage() {
   return (
     <SiteLayout>

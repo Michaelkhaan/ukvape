@@ -26,6 +26,14 @@ interface CategoryPageProps {
   }>;
 }
 
+export const instant = false;
+
+export function generateStaticParams() {
+  return homeCategories.map((category) => ({
+    slug: category.slug,
+  }));
+}
+
 const categoryDetails: Record<
   string,
   {
@@ -145,7 +153,8 @@ const categoryDetails: Record<
     faqs: [
       {
         question: "What accessories are available?",
-        answer: "The products currently listed in this category appear below.",
+        answer:
+          "The products currently listed in this category appear below.",
       },
       {
         question: "How do I check product compatibility?",
@@ -183,10 +192,14 @@ function normalize(value: string) {
   return value.toLowerCase().replace(/[^a-z0-9]/g, "");
 }
 
-export default async function CategoryPage({ params }: CategoryPageProps) {
+export default async function CategoryPage({
+  params,
+}: CategoryPageProps) {
   const { slug } = await params;
 
-  const category = homeCategories.find((item) => item.slug === slug);
+  const category = homeCategories.find(
+    (item) => item.slug === slug,
+  );
 
   if (!category) {
     notFound();
@@ -196,7 +209,8 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
 
   const categoryProducts = products.filter(
     (product) =>
-      normalize(product.category ?? "") === normalize(category.name) ||
+      normalize(product.category ?? "") ===
+        normalize(category.name) ||
       (slug === "nicotine-pouches" &&
         normalize(product.category ?? "") === "nicpouches"),
   );
@@ -237,7 +251,6 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
 
         {/* Hero */}
         <section className="relative isolate overflow-hidden bg-[#031713]">
-          {/* Category background image */}
           <div
             className="absolute inset-0 -z-20 bg-cover bg-center bg-no-repeat"
             style={{
@@ -245,10 +258,8 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
             }}
           />
 
-          {/* Readability overlay */}
           <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#031713] via-[#031713]/75 to-[#031713]/15" />
 
-          {/* Green glow */}
           <div className="absolute -right-24 -top-32 -z-10 h-[450px] w-[450px] rounded-full bg-[#079b57]/15 blur-[100px]" />
 
           <div className="relative mx-auto grid min-h-[480px] max-w-[1500px] items-center gap-10 px-4 py-12 sm:px-6 md:grid-cols-2 lg:px-8">

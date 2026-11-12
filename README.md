@@ -1,47 +1,36 @@
-# Global Bargain — Premium Vape Wholesale Storefront
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-A Next.js 15 App Router storefront built with TypeScript and Tailwind CSS v4.
+## Getting Started
 
-## Design direction
-
-- Dedicated vape hardware and wholesale identity.
-- Cinematic dark-emerald hero using `public/hero-wholesale.png` as a full-bleed background.
-- Clear trade-account and business-verification calls to action.
-- Brand directory, reusable-device category cards, featured catalogue and trade account section.
-- Responsive navigation, catalogue search entry point, basket indicator and mobile menu.
-- Consistent product-card styling and accessible interactive controls.
-
-## Run locally
+First, run the development server:
 
 ```bash
-npm install
 npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-Open http://localhost:3000.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Notes before production
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-- Replace product image URLs in `lib/data.ts` with supplier-approved, locally hosted images for the exact listed SKUs.
-- Verify all product specifications, model names, product legality and image usage rights with suppliers.
-- Connect authentication, trade-account review, inventory, shipping and payment services before accepting live orders.
-- Ensure UK age-verification, advertising, product, recycling and other applicable compliance requirements are reviewed by the business.
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Stack
+## Learn More
 
-- Next.js 15
-- React 19
-- TypeScript
-- Tailwind CSS v4
-- Lucide React
+To learn more about Next.js, take a look at the following resources:
 
-## Approved homepage design implementation
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-The homepage and storefront header have been rebuilt to closely match the approved Global Bargain vape-wholesale reference image. The implementation uses real React/Next.js elements for the navigation, hero copy and calls to action, service strip, brand links, product cards, basket actions, and responsive layouts. The approved visual reference is included at `public/design-reference-exact.png`.
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-Reference-matched image assets are in `public/`:
-- `hero-device-stage.jpg` — cropped device stage used in the hero
-- `category-*-exact.jpg` — category card artwork
-- `promo-*-exact.jpg` — trade and delivery promotional panels
+## Deploy on Vercel
 
-Run locally with `npm install` followed by `npm run dev`.
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
