@@ -1,3 +1,5 @@
+"use client"
+
 import Link from "next/link";
 import {
   ArrowUpRight,
@@ -7,6 +9,7 @@ import {
   ShieldCheck,
   Truck,
 } from "lucide-react";
+import Image from "next/image";
 
 const footerLinks = {
   Explore: [
@@ -34,14 +37,21 @@ export default function Footer() {
     <footer className="bg-[#061b16] text-white">
       <div className="mx-auto grid max-w-[1320px] gap-10 px-5 py-14 sm:px-8 lg:grid-cols-[1.4fr_0.8fr_0.8fr_0.8fr_1.2fr] lg:px-12 lg:py-16">
         <div className="max-w-xs">
-          <Link href="/" className="inline-flex items-center gap-2.5">
-            <span className="grid h-11 w-11 place-items-center rounded-2xl bg-emerald-500 text-2xl font-black italic text-[#06271b]">
-              G
-            </span>
-            <span className="flex flex-col text-[15px] font-black leading-[0.95] tracking-[-0.055em]">
-              GLOBAL<span className="mt-1 text-emerald-400">BARGAIN</span>
-            </span>
-          </Link>
+          <Link
+          href="/"
+          onClick={() => {}}
+          className="flex w-[135px] shrink-0 items-center sm:w-[160px] lg:w-[175px] xl:w-[190px]"
+          aria-label="Global Bargain home"
+        >
+          <Image
+            src="/logo-mark.webp"
+            alt="Global Bargain"
+            width={190}
+            height={60}
+            priority
+            className="h-auto w-full object-contain"
+          />
+        </Link>
           <p className="mt-5 text-xs leading-6 text-slate-400">
             A UK vape wholesale partner supporting verified retailers with
             reusable pod systems, vape hardware and dedicated trade account
