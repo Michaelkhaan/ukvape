@@ -1,0 +1,2 @@
+import SiteLayout from "@/components/site-layout";import CheckoutClient from "@/components/checkout-client";
+export default function Checkout(){return <SiteLayout><div className="page-banner"><div className="container"><h1>Checkout</h1><p>You're one step away from completing your order.</p></div></div><div className="container"><div className="breadcrumbs"><a href="/">Home</a>　›　<a href="/cart">Cart</a>　›　Checkout</div><CheckoutClient/></div></SiteLayout>}

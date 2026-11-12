@@ -1,0 +1,2 @@
+import SiteLayout from "@/components/site-layout";import CartClient from "@/components/cart-client";
+export default function Cart(){return <SiteLayout><div className="page-banner"><div className="container"><h1>Your cart</h1><p>Review your items before continuing to checkout.</p></div></div><div className="container"><div className="breadcrumbs"><a href="/">Home</a>　›　Cart</div><CartClient/></div></SiteLayout>}
