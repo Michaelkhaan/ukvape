@@ -10,6 +10,9 @@ import {
 import SiteLayout from "@/components/site-layout";
 import { products1 } from "@/lib/data";
 
+
+export const instant = false;
+
 interface PageProps {
   params: Promise<{ id: string }>;
 }
