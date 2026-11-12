@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import {
   Search,
@@ -8,7 +9,6 @@ import {
   UserRound,
   Menu,
   X,
-  ChevronDown,
   ShieldCheck,
   Truck,
   Mail,
@@ -18,14 +18,14 @@ import {
   LockKeyhole,
 } from "lucide-react";
 import { useCart } from "./cart-provider";
-import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 const navItems = [
   { label: "Brands", href: "/brands" },
   { label: "Products", href: "/products" },
   { label: "Collection", href: "/collection" },
   { label: "Best Sellers", href: "/best-sellers" },
-  { label: "New Arrivals", href: "/new-arrivals" },
+  { label: "New Arrivals", href: "/new-arrival" },
   { label: "About Us", href: "/about" },
   { label: "Blog", href: "/blog" },
 ];
@@ -34,157 +34,218 @@ export default function Header() {
   const { count } = useCart();
   const [open, setOpen] = useState(false);
 
+  const closeMenu = () => setOpen(false);
+
+  const pathname = usePathname();
+
+  const isActive = (href: string) => {
+    if (href === "/") return pathname === "/";
+    return pathname === href || pathname.startsWith(`${href}/`);
+  };
+
   return (
     <header className="sticky top-0 z-50 w-full bg-white shadow-[0_3px_18px_rgba(3,20,14,0.08)]">
+      {/* TOP BAR */}
       <div className="bg-[#03110f] text-white">
-        <div className="mx-auto flex max-w-375 flex-wrap items-center justify-between gap-x-5 gap-y-1 px-4 py-1 text-[10px] font-semibold sm:px-6 lg:px-10">
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-1 text-white/90">
-            <span className="inline-flex items-center gap-2">
-              <Truck size={13} className="text-[#13df76]" />
-              Free Delivery on Orders Over £100
+        <div className="mx-auto flex max-w-[1500px] flex-wrap items-center justify-between gap-x-4 gap-y-1 px-3 py-2 text-[10px] font-semibold sm:px-6 lg:px-8 xl:px-10">
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-white/90 sm:gap-x-6">
+            <span className="inline-flex items-center gap-1.5">
+              <Truck size={13} className="shrink-0 text-[#13df76]" />
+              <span>Free Delivery on Orders Over £100</span>
             </span>
-            <span className="hidden items-center gap-2 border-l border-white/20 pl-6 sm:inline-flex">
-              <ShieldCheck size={13} className="text-[#13df76]" />
+
+            <span className="hidden items-center gap-2 border-l border-white/20 pl-4 sm:inline-flex">
+              <ShieldCheck size={13} className="shrink-0 text-[#13df76]" />
               Trade Accounts Available
             </span>
-            <span className="hidden items-center gap-2 border-l border-white/20 pl-6 lg:inline-flex">
-              <Headphones size={13} className="text-[#13df76]" />
+
+            <span className="hidden items-center gap-2 border-l border-white/20 pl-4 xl:inline-flex">
+              <Headphones size={13} className="shrink-0 text-[#13df76]" />
               Excellent Customer Support
             </span>
           </div>
-          <div className="flex items-center gap-4 text-white/85">
+
+          <div className="flex shrink-0 items-center gap-2 text-white/85 sm:gap-4">
             <a
               href="tel:+442012345678"
-              className="hidden items-center gap-1.5 hover:text-[#27e982] md:inline-flex"
+              className="hidden items-center gap-1.5 transition hover:text-[#27e982] md:inline-flex"
             >
               <Phone size={11} />
               Call Us: 020 1234 5678
             </a>
+
             <a
               href="mailto:info@globalbargain.co.uk"
-              className="hidden items-center gap-1.5 hover:text-[#27e982] xl:inline-flex"
+              className="hidden items-center gap-1.5 transition hover:text-[#27e982] lg:inline-flex"
             >
               <Mail size={11} />
               info@globalbargain.co.uk
             </a>
+
             <Link
-            href="/login"
-            aria-label="Wishlist and account"
-            className="hidden h-9 w-8 place-items-center transition hover:text-[#079b57] lg:grid"
-          >
-            <Heart size={19} />
-          </Link>
-          <Link
-            href="/cart"
-            aria-label="Shopping cart"
-            className="relative grid h-9 w-9 place-items-center transition hover:text-[#079b57]"
-          >
-            <ShoppingCart size={21} />
-            <span className="absolute -right-0.5 -top-0.5 grid h-[16px] min-w-[16px] place-items-center rounded-full bg-[#10c968] px-1 text-[8px] font-black text-[#04150e]">
-              {count}
-            </span>
-          </Link>
+              href="/login"
+              aria-label="Wishlist and account"
+              className="hidden h-8 w-8 place-items-center transition hover:text-[#27e982] lg:grid"
+            >
+              <Heart size={18} />
+            </Link>
+
+            <Link
+              href="/cart"
+              aria-label="Shopping cart"
+              className="relative grid h-8 w-8 place-items-center transition hover:text-[#27e982]"
+            >
+              <ShoppingCart size={20} />
+
+              <span className="absolute -right-0.5 -top-0.5 grid h-[16px] min-w-[16px] place-items-center rounded-full bg-[#10c968] px-1 text-[8px] font-black text-[#04150e]">
+                {count}
+              </span>
+            </Link>
           </div>
-          
         </div>
       </div>
 
-      <div className="mx-auto flex min-h-[66px] max-w-[1500px] items-center gap-4 px-4 sm:px-6 lg:gap-7 lg:px-10">
+      {/* MAIN HEADER */}
+      <div className="mx-auto flex min-h-[68px] max-w-[1500px] items-center justify-between gap-3 px-3 sm:px-6 lg:gap-5 lg:px-8 xl:px-10">
+        {/* LOGO */}
         <Link
           href="/"
-          className="flex w-[190px] shrink-0 items-center gap-2.5"
+          onClick={closeMenu}
+          className="flex w-[135px] shrink-0 items-center sm:w-[160px] lg:w-[175px] xl:w-[190px]"
           aria-label="Global Bargain home"
         >
-          <Image src="/logo-mark.webp" alt="UK VapeDistro" width={0} height={0} className="w-full" unoptimized />
-          {/* <span className="relative grid h-10 w-10 place-items-center rounded-full border-[3px] border-[#079b57] text-[25px] font-black italic leading-none text-[#079b57] after:absolute after:-right-1 after:bottom-0 after:h-3 after:w-3 after:rounded-full after:border-2 after:border-white after:bg-[#14db75]">
-            G
-          </span>
-          <span className="flex flex-col text-[17px] font-black leading-[0.88] tracking-[-0.055em] text-[#0b1720]">
-            GLOBAL<span className="mt-1 text-[#079b57]">BARGAIN</span>
-          </span> */}
+          <Image
+            src="/logo-mark.webp"
+            alt="Global Bargain"
+            width={190}
+            height={60}
+            priority
+            className="h-auto w-full object-contain"
+          />
         </Link>
 
-        <nav className="hidden min-w-0 flex-1 items-center gap-8 xl:flex">
+        {/* DESKTOP NAVIGATION */}
+        <nav className="hidden min-w-0 flex-1 items-center justify-center gap-5 md:flex 2xl:gap-5">
           {navItems.map((item) => (
             <Link
               key={item.label}
               href={item.href}
-              className="inline-flex items-center gap-10 whitespace-nowrap text-[15px] font-semibold! text-[#17232b] transition hover:text-[#079b57]"
+              className={`relative whitespace-nowrap py-6 text-[15px] font-medium transition-colors duration-200
+        ${
+          isActive(item.href)
+            ? "text-[#079b57] after:absolute after:bottom-0 after:left-0 after:h-[3px] after:w-full after:rounded-full after:bg-[#079b57]"
+            : "text-[#17232b] hover:text-[#079b57]"
+        }`}
             >
               {item.label}
             </Link>
           ))}
         </nav>
 
-        <div className="flex shrink-0 items-center gap-3 text-[#10212a]">
+        {/* HEADER ACTIONS */}
+        <div className="flex shrink-0 items-center gap-2 text-[#10212a] sm:gap-3 lg:gap-4">
           <Link
-              href="/login"
-              className="inline-flex items-center gap-1.5 hover:text-[#27e982]"
-            >
-              <UserRound size={12} />
-              Login
-            </Link>
-            <Link
-              href="/trade-register"
-              className="hidden items-center gap-1.5 rounded-md bg-[#10c968] px-3 py-1.5 font-extrabold text-[#04150e] transition hover:bg-[#40ed8c] sm:inline-flex"
-            >
-              <LockKeyhole size={11} />
-              Trade Login
-            </Link>
-          
+            href="/login"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold transition hover:text-[#079b57] sm:text-sm"
+          >
+            <UserRound size={16} />
+            <span className="hidden sm:inline">Login</span>
+          </Link>
+
+          <Link
+            href="/trade-register"
+            className="hidden items-center gap-1.5 whitespace-nowrap rounded-md bg-[#10c968] px-3 py-2 text-xs font-extrabold text-[#04150e] transition hover:bg-[#40ed8c] sm:inline-flex lg:px-4 lg:text-sm"
+          >
+            <LockKeyhole size={13} />
+            Trade Login
+          </Link>
+
+          {/* MOBILE MENU BUTTON */}
           <button
             onClick={() => setOpen(!open)}
             aria-label={open ? "Close menu" : "Open menu"}
-            className="grid h-9 w-9 place-items-center rounded-lg border border-[#e5ece8] text-[#10212a] xl:hidden"
+            aria-expanded={open}
+            className="grid h-9 w-9 shrink-0 place-items-center rounded-lg border border-[#e5ece8] text-[#10212a] transition hover:border-[#079b57] hover:text-[#079b57] xl:hidden"
           >
-            {open ? <X size={18} /> : <Menu size={18} />}
+            {open ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
       </div>
 
+      {/* MOBILE / TABLET MENU */}
       {open && (
-        <div className="border-t border-[#e8efeb] bg-white px-4 py-4 shadow-xl xl:hidden">
+        <div className="border-t border-[#e8efeb] bg-white px-4 py-5 shadow-xl xl:hidden">
+          {/* SEARCH */}
           <form
             action="/products"
-            className="mb-3 flex h-10 overflow-hidden rounded-lg border border-[#dce5e9]"
+            className="mb-5 flex h-11 overflow-hidden rounded-xl border border-[#dce5e9] bg-[#f8faf9]"
           >
             <input
               name="q"
               placeholder="Search for products..."
-              className="min-w-0 flex-1 px-3 text-xs outline-none"
+              className="min-w-0 flex-1 bg-transparent px-4 text-sm text-[#17232b] outline-none placeholder:text-[#9aa49f]"
             />
+
             <button
+              type="submit"
               aria-label="Search"
-              className="w-11 bg-[#079b57] text-white"
+              className="grid w-12 shrink-0 place-items-center bg-[#079b57] text-white transition hover:bg-[#067c46]"
             >
-              <Search size={16} className="mx-auto" />
+              <Search size={18} />
             </button>
           </form>
-          <div className="grid grid-cols-2 gap-2">
+
+          {/* NAVIGATION LINKS */}
+          <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
             {navItems.map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
-                onClick={() => setOpen(false)}
-                className="rounded-lg bg-[#f4f8f5] px-3 py-3 text-[11px] font-bold text-[#24382d]"
+                onClick={closeMenu}
+                className="flex min-h-11 items-center rounded-xl border border-[#e8efeb] bg-[#f8faf9] px-3 py-3 text-xs font-bold text-[#24382d] transition hover:border-[#079b57] hover:bg-[#e7f7ed] hover:text-[#087c49] sm:text-sm"
               >
                 {item.label}
               </Link>
             ))}
+          </div>
+
+          {/* MOBILE ACTIONS */}
+          <div className="mt-4 grid grid-cols-2 gap-2">
             <Link
               href="/products"
-              onClick={() => setOpen(false)}
-              className="rounded-lg bg-[#e7f7ed] px-3 py-3 text-[11px] font-extrabold text-[#087c49]"
+              onClick={closeMenu}
+              className="flex min-h-11 items-center justify-center rounded-xl bg-[#e7f7ed] px-3 py-3 text-xs font-extrabold text-[#087c49] transition hover:bg-[#d5f2e0] sm:text-sm"
             >
               All Categories
             </Link>
+
             <Link
               href="/trade-register"
-              onClick={() => setOpen(false)}
-              className="rounded-lg bg-[#087c49] px-3 py-3 text-[11px] font-extrabold text-white"
+              onClick={closeMenu}
+              className="flex min-h-11 items-center justify-center gap-2 rounded-xl bg-[#087c49] px-3 py-3 text-xs font-extrabold text-white transition hover:bg-[#06663c] sm:text-sm"
             >
+              <LockKeyhole size={14} />
               Trade Account
             </Link>
+          </div>
+
+          {/* CONTACT DETAILS */}
+          <div className="mt-5 flex flex-col gap-3 border-t border-[#e8efeb] pt-4 text-xs text-[#69756f] sm:flex-row sm:items-center sm:justify-between">
+            <a
+              href="tel:+442012345678"
+              className="inline-flex items-center gap-2 transition hover:text-[#079b57]"
+            >
+              <Phone size={14} className="text-[#079b57]" />
+              020 1234 5678
+            </a>
+
+            <a
+              href="mailto:info@globalbargain.co.uk"
+              className="inline-flex items-center gap-2 transition hover:text-[#079b57]"
+            >
+              <Mail size={14} className="text-[#079b57]" />
+              info@globalbargain.co.uk
+            </a>
           </div>
         </div>
       )}

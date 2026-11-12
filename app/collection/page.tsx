@@ -19,7 +19,7 @@ const products = [
     id: "hayati-pro-max-4k",
     name: "Hayati Pro Max+ 4K",
     subtitle: "Pro Max Series",
-    image: "/products/hayati-pro-max-4k.webp",
+    image: "/hayati-pro-max-4k.webp",
     description:
       "Hayati Pro Max+ 4K product range with multiple flavour options.",
     specifications: [
@@ -65,7 +65,7 @@ const products = [
     id: "hayati-pro-ultra",
     name: "Hayati Pro Ultra+",
     subtitle: "Ultra Series",
-    image: "/products/hayati-pro-ultra.webp",
+    image: "/hayati-pro-ultra.webp",
     description:
       "Hayati Pro Ultra+ range with multiple listed flavour combinations.",
     specifications: [
@@ -110,7 +110,7 @@ const products = [
     id: "hayati-pro-max-6k",
     name: "Hayati Pro Max+ 6K",
     subtitle: "Pro Max Series",
-    image: "/products/hayati-pro-max-6k.webp",
+    image: "/hayati-pro-max-6k.webp",
     description: "Hayati Pro Max+ 6K range with a broad flavour catalogue.",
     specifications: [
       ["Dimensions", "28 × 124.7 × 28 mm"],
@@ -166,7 +166,7 @@ const products = [
     id: "hayati-player-edition",
     name: "Hayati Pro Max Player Edition",
     subtitle: "Special Edition",
-    image: "/products/hayati-player-edition.webp",
+    image: "/hayati-player-edition.webp",
     description:
       "Hayati Pro Max Player Edition with dedicated product design and listed specifications.",
     specifications: [
@@ -191,7 +191,7 @@ const products = [
     id: "hayati-halloween-edition",
     name: "Hayati Pro Halloween Limited Edition",
     subtitle: "Limited Edition",
-    image: "/products/hayati-halloween-edition.webp",
+    image: "/hayati-halloween-edition.webp",
     description: "Hayati Pro Halloween Limited Edition product range.",
     specifications: [
       ["Product range", "Limited Edition"],
@@ -236,34 +236,44 @@ export default function HayatiCollectionPage() {
       <main className="min-h-screen bg-[#f5f7fa] text-[#17242d]">
         {/* Hero */}
         <section className="relative isolate overflow-hidden bg-[#031713]">
-          <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_85%_30%,rgba(7,155,87,0.25),transparent_35%)]" />
+          {/* Background image */}
+          <div
+            className="absolute inset-0 -z-20 bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: "url('/heroimage.png')",
+            }}
+          />
 
+          {/* Dark overlay for readable text */}
+          <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#031713] via-[#031713]/90 to-[#031713]/20" />
+
+          {/* Green glow */}
           <div className="absolute -right-32 -top-40 -z-10 h-[500px] w-[500px] rounded-full bg-[#079b57]/20 blur-[120px]" />
 
-          <div className="mx-auto grid max-w-[1500px] items-center gap-12 px-4 py-8 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:px-8">
+          <div className="mx-auto grid max-w-[1500px] items-center gap-12 px-4 py-8 sm:px-6 lg:min-h-[500px] lg:grid-cols-[1.1fr_0.9fr] lg:px-8">
             <div>
               <div className="inline-flex items-center gap-2 rounded-full border border-[#20e980]/30 bg-[#20e980]/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-[#20e980]">
                 <BadgeCheck size={15} />
                 Brand Collection
               </div>
 
-              <p className="mt-7 text-sm font-bold uppercase tracking-[0.2em] text-[#20e980]">
+              <p className="mt-4 text-sm font-bold uppercase tracking-[0.2em] text-[#20e980]">
                 Wholesale Product Catalogue
               </p>
 
-              <h1 className="mt-4 max-w-3xl text-4xl font-black leading-tight text-white sm:text-5xl lg:text-7xl">
+              <h1 className="mt-4 max-w-3xl text-4xl font-black leading-tight text-white sm:text-5xl">
                 HAYATI
                 <span className="block text-[#20e980]">Collection</span>
               </h1>
 
-              <p className="mt-6 max-w-2xl text-base leading-8 text-[#b7c8c0] sm:text-lg">
+              <p className="mt-4 max-w-2xl text-base leading-8 text-[#b7c8c0]">
                 Explore the Hayati product catalogue, including Pro Max, Pro
                 Ultra, Player Edition and Limited Edition ranges. Product
                 specifications and available options are listed for verified
                 trade customers.
               </p>
 
-              <div className="mt-8 flex flex-wrap gap-3">
+              <div className="mt-5 flex flex-wrap gap-3">
                 <Link
                   href="#hayati-products"
                   className="inline-flex items-center gap-2 rounded-xl bg-[#079b57] px-6 py-4 text-sm font-extrabold text-white transition hover:bg-[#087d49]"
@@ -274,7 +284,7 @@ export default function HayatiCollectionPage() {
 
                 <Link
                   href="/register"
-                  className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-6 py-4 text-sm font-bold text-white transition hover:border-[#20e980] hover:text-[#20e980]"
+                  className="inline-flex items-center gap-2 rounded-xl border border-white/30 bg-black/20 px-6 py-4 text-sm font-bold text-white transition hover:border-[#20e980] hover:text-[#20e980]"
                 >
                   Trade Registration
                   <ArrowUpRight size={18} />
@@ -286,9 +296,11 @@ export default function HayatiCollectionPage() {
                   <ShieldCheck size={17} className="text-[#20e980]" />
                   Trade catalogue
                 </span>
+
                 <span className="flex items-center gap-2">
                   <Boxes size={17} className="text-[#20e980]" />5 product ranges
                 </span>
+
                 <span className="flex items-center gap-2">
                   <Truck size={17} className="text-[#20e980]" />
                   UK delivery information
@@ -296,21 +308,8 @@ export default function HayatiCollectionPage() {
               </div>
             </div>
 
-            {/* Hero image */}
-            <div className="relative mx-auto w-full max-w-[560px]">
-              <div className="absolute inset-10 rounded-full bg-[#079b57]/20 blur-[90px]" />
-
-              <div className="relative flex min-h-[350px] items-center justify-center rounded-[32px] border border-white/10 bg-white/[0.04] p-5 sm:min-h-[470px] sm:p-8">
-                <Image
-                  src="/products/hayati-collection.webp"
-                  alt="Hayati collection"
-                  fill
-                  priority
-                  className="object-contain p-5 sm:p-8"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-              </div>
-            </div>
+            {/* Space for background image's product visuals */}
+            <div className="hidden lg:block" />
           </div>
         </section>
 
@@ -401,7 +400,7 @@ export default function HayatiCollectionPage() {
                   </p>
 
                   <Link
-                    href="/register"
+                    href="/trade-register"
                     className="mt-5 flex w-full items-center justify-center gap-2 rounded-xl bg-[#031713] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#079b57]"
                   >
                     View Product
@@ -414,47 +413,53 @@ export default function HayatiCollectionPage() {
         </section>
 
         {/* Trade account section */}
-        <section className="px-4 pb-16 sm:px-6 md:pb-24 lg:px-8">
-          <div className="relative mx-auto max-w-[1500px] overflow-hidden rounded-[32px] bg-[#031713] px-6 py-14 text-center sm:px-12 md:py-20">
-            <div className="absolute -right-20 -top-32 h-80 w-80 rounded-full bg-[#079b57]/20 blur-[90px]" />
-            <div className="absolute -bottom-40 -left-20 h-80 w-80 rounded-full bg-[#20e980]/10 blur-[90px]" />
+        <section className="px-4 py-10 sm:px-6 md:py-14 lg:px-8">
+          <div className="relative mx-auto max-w-[1500px] overflow-hidden rounded-2xl bg-[#031713] text-white">
+            {/* Background Image */}
+            <div
+              className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+              style={{
+                backgroundImage:
+                  "url('/Neon Green Vape Warehouse Display.png')",
+              }}
+            />
 
-            <div className="relative mx-auto max-w-3xl">
-              <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl border border-[#20e980]/30 bg-[#20e980]/10 text-[#20e980]">
-                <Store size={26} />
+            {/* Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#00140e]/80 via-[#00140e]/45 to-transparent" />
+
+            {/* Content */}
+            <div className="relative z-10 flex min-h-[300px] w-full flex-col items-center justify-center px-5 py-8 text-center sm:min-h-[360px] md:min-h-[420px] lg:min-h-0 lg:aspect-[2/1] lg:w-[56%] lg:px-8">
+              {/* Icon */}
+              <div className="flex h-12 w-12 items-center justify-center rounded-full border border-[#00e995] bg-[#031713]/50 text-[#20e980] sm:h-14 sm:w-14">
+                <Store size={25} />
               </div>
 
-              <p className="mt-6 text-xs font-extrabold uppercase tracking-[0.2em] text-[#20e980]">
+              {/* Subtitle */}
+              <p className="mt-3 text-[10px] font-extrabold uppercase tracking-[0.15em] text-[#20e980] sm:text-xs md:text-sm">
                 Verified Wholesale Access
               </p>
 
-              <h2 className="mt-4 text-3xl font-black text-white sm:text-5xl">
-                Access Your Trade Account
+              {/* Heading */}
+              <h2 className="mt-3 text-2xl font-black leading-[1.05] tracking-tight sm:text-3xl md:text-4xl lg:text-[clamp(32px,3.5vw,54px)]">
+                <span className="block text-white">Unlock Wholesale</span>
+                <span className="block text-[#00e995]">Pricing</span>
               </h2>
 
-              <p className="mx-auto mt-5 max-w-2xl text-sm leading-8 text-[#b7c8c0]">
-                Trade pricing and ordering access are available to verified
-                retailer accounts. Sign in to your account or apply for retailer
-                verification.
+              {/* Description */}
+              <p className="mx-auto mt-3 max-w-lg text-xs font-semibold leading-6 text-white/85 sm:text-sm md:text-base">
+                Apply for a verified trade account to access
+                <br className="hidden sm:block" />
+                wholesale pricing and retailer ordering.
               </p>
 
-              <div className="mt-8 flex flex-wrap justify-center gap-3">
-                <Link
-                  href="/register"
-                  className="inline-flex items-center gap-2 rounded-xl bg-[#20e980] px-7 py-4 text-sm font-extrabold text-[#031713] transition hover:bg-white"
-                >
-                  Open Trade Account
-                  <ArrowUpRight size={18} />
-                </Link>
-
-                <Link
-                  href="/login"
-                  className="inline-flex items-center gap-2 rounded-xl border border-white/20 px-7 py-4 text-sm font-bold text-white transition hover:border-[#20e980] hover:text-[#20e980]"
-                >
-                  Existing Retailer Login
-                  <ArrowRight size={18} />
-                </Link>
-              </div>
+              {/* Button */}
+              <Link
+                href="/trade-register"
+                className="mt-5 inline-flex items-center justify-center gap-3 rounded-full bg-[#00d991] px-6 py-3 text-xs font-extrabold text-[#031713] transition-all duration-300 hover:-translate-y-1 hover:bg-[#20e980] sm:px-8 sm:py-3.5 sm:text-sm md:text-base"
+              >
+                Apply for Trade Access
+                <ArrowRight size={19} />
+              </Link>
             </div>
           </div>
         </section>
