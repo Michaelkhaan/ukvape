@@ -15,6 +15,28 @@ export type Product = {
   imageAlt: string;
 };
 
+
+export interface ProductVariant {
+  id: string;
+  name: string;
+  image: string;
+  flavour?: string;
+  strength?: string;
+  pack?: string;
+}
+
+export interface Product1 {
+  id: string;
+  name: string;
+  brand: string;
+  category?: string;
+  image: string;
+  description?: string;
+  variants: ProductVariant[];
+}
+
+
+
 // Adult-only, reusable and refillable vape devices. Replace external image URLs
 // with supplier-approved local assets before production deployment.
 export const products: Product[] = [
@@ -30,7 +52,7 @@ export const products: Product[] = [
     colour: "#2479b9",
     description: "A reusable, rechargeable refillable pod kit from Vaporesso. Trade customers can sign in to view account-specific pricing and availability.",
     stock: "Check trade availability",
-    image: "https://dampf-shop.de/media/a1/28/c0/1719181854/source321594-jpg_cea307897c32cb1a.jpg?ts=1719181854",
+    image: "https://vapesdirect.pk/cdn/shop/files/121762_vaporesso-xros-4-nano-titanium-silver.webp?v=1765217385",
     imageAlt: "Vaporesso XROS 4 reusable refillable pod kit",
   },
   {
@@ -45,7 +67,7 @@ export const products: Product[] = [
     colour: "#1680c3",
     description: "A rechargeable pod system designed for use with replaceable refillable pods. Sign in for trade availability.",
     stock: "Check trade availability",
-    image: "https://cdn11.bigcommerce.com/s-8tn3otes3v/images/stencil/1920x1920/products/5780/44148/Vaporesso_XROS_3_Kit_Sky_Blue__27420_21121__43528.1751645425.jpg?c=2",
+    image: "https://store.vaporesso.com/cdn/shop/files/XROS3_PeachPink_1.png?v=1783423356&width=1946",
     imageAlt: "Vaporesso XROS 3 refillable pod kit in sky blue",
   },
   {
@@ -60,7 +82,7 @@ export const products: Product[] = [
     colour: "#2c72a9",
     description: "A rechargeable pod system for adult customers. Review product specifications and trade availability after account sign-in.",
     stock: "Check trade availability",
-    image: "https://morevaping.com/imagecache/800/downloads/misty-blue-geekvape-digi-max.jpg",
+    image: "https://tobaccohouse.pk/cdn/shop/files/RUBY_RED_Geekvape_Digi_Max_Pod_Mod_Kit_3000mAh.webp?v=1746278910&width=1445",
     imageAlt: "Geekvape Digi Max rechargeable pod system",
   },
   {
@@ -75,10 +97,375 @@ export const products: Product[] = [
     colour: "#277bdc",
     description: "A reusable pod kit. Verify the exact model, refill format and replaceable components against supplier documentation before listing for sale.",
     stock: "Check trade availability",
-    image: "https://cdn.shopify.com/s/files/1/0574/2680/4901/files/HayatiProUltra.jpg?v=1760569347",
+    image: "https://hayativapor.com/cdn/shop/files/Ultra_78168855-7dfe-4e37-8fe8-e42d917a94fb.png?v=1788849099&width=300",
     imageAlt: "Hayati Pro Ultra reusable pod kit product image",
   },
 ];
+
+export const products1: Product1[] = [
+  {
+    id: "hayati-pro-max-pods",
+    name: "Hayati Pro Max+ Pods",
+    brand: "Hayati",
+    category: "Prefilled Pods",
+    image: "https://vaporizerhut.co.uk/cdn/shop/files/Blackberry_Raspberry_Hayati_Pro_Max_Pods_grande.png?v=1752238216",
+    description:
+      "Explore the Hayati Pro Max+ Pods product range.",
+
+    variants: [
+      {
+        id: "strawberry-kiwi",
+        name: "Strawberry Kiwi",
+        flavour: "Strawberry Kiwi",
+        image: "/products/strawberry-kiwi.webp",
+        strength: "20mg",
+        pack: "Pack of 5",
+      },
+      {
+        id: "blue-razz-ice",
+        name: "Blue Razz Ice",
+        flavour: "Blue Razz Ice",
+        image: "/products/blue-razz-ice.webp",
+        strength: "20mg",
+        pack: "Pack of 5",
+      },
+      {
+        id: "watermelon-ice",
+        name: "Watermelon Ice",
+        flavour: "Watermelon Ice",
+        image: "/products/watermelon-ice.webp",
+        strength: "20mg",
+        pack: "Pack of 5",
+      },
+    ],
+  },
+  {
+    id: "hayati-pro-max-pods",
+    name: "Hayati Pro Max+ Pods",
+    brand: "Hayati",
+    category: "Prefilled Pods",
+    image: "https://vapeoffers.co.uk/cdn/shop/files/Hayati_Pro_Max_Pods_-_Triple_Mango.webp?v=1768559617&width=1214",
+    description:
+      "Explore the Hayati Pro Max+ Pods product range.",
+
+    variants: [
+      {
+        id: "strawberry-kiwi",
+        name: "Strawberry Kiwi",
+        flavour: "Strawberry Kiwi",
+        image: "/products/strawberry-kiwi.webp",
+        strength: "20mg",
+        pack: "Pack of 5",
+      },
+      {
+        id: "blue-razz-ice",
+        name: "Blue Razz Ice",
+        flavour: "Blue Razz Ice",
+        image: "/products/blue-razz-ice.webp",
+        strength: "20mg",
+        pack: "Pack of 5",
+      },
+      {
+        id: "watermelon-ice",
+        name: "Watermelon Ice",
+        flavour: "Watermelon Ice",
+        image: "/products/watermelon-ice.webp",
+        strength: "20mg",
+        pack: "Pack of 5",
+      },
+    ],
+  },
+  {
+    id: "hayati-pro-max-pods",
+    name: "Hayati Pro Max+ Pods",
+    brand: "Hayati",
+    category: "Prefilled Pods",
+    image: "https://vaporizerhut.co.uk/cdn/shop/files/Blackberry_Raspberry_Hayati_Pro_Max_Pods_grande.png?v=1752238216",
+    description:
+      "Explore the Hayati Pro Max+ Pods product range.",
+
+    variants: [
+      {
+        id: "strawberry-kiwi",
+        name: "Strawberry Kiwi",
+        flavour: "Strawberry Kiwi",
+        image: "/products/strawberry-kiwi.webp",
+        strength: "20mg",
+        pack: "Pack of 5",
+      },
+      {
+        id: "blue-razz-ice",
+        name: "Blue Razz Ice",
+        flavour: "Blue Razz Ice",
+        image: "/products/blue-razz-ice.webp",
+        strength: "20mg",
+        pack: "Pack of 5",
+      },
+      {
+        id: "watermelon-ice",
+        name: "Watermelon Ice",
+        flavour: "Watermelon Ice",
+        image: "/products/watermelon-ice.webp",
+        strength: "20mg",
+        pack: "Pack of 5",
+      },
+    ],
+  },
+  {
+    id: "hayati-pro-max-pods",
+    name: "Hayati Pro Max+ Pods",
+    brand: "Hayati",
+    category: "Prefilled Pods",
+    image: "https://vaporizerhut.co.uk/cdn/shop/files/Blackberry_Raspberry_Hayati_Pro_Max_Pods_grande.png?v=1752238216",
+    description:
+      "Explore the Hayati Pro Max+ Pods product range.",
+
+    variants: [
+      {
+        id: "strawberry-kiwi",
+        name: "Strawberry Kiwi",
+        flavour: "Strawberry Kiwi",
+        image: "/products/strawberry-kiwi.webp",
+        strength: "20mg",
+        pack: "Pack of 5",
+      },
+      {
+        id: "blue-razz-ice",
+        name: "Blue Razz Ice",
+        flavour: "Blue Razz Ice",
+        image: "/products/blue-razz-ice.webp",
+        strength: "20mg",
+        pack: "Pack of 5",
+      },
+      {
+        id: "watermelon-ice",
+        name: "Watermelon Ice",
+        flavour: "Watermelon Ice",
+        image: "/products/watermelon-ice.webp",
+        strength: "20mg",
+        pack: "Pack of 5",
+      },
+    ],
+  },
+  {
+    id: "hayati-pro-max-pods",
+    name: "Hayati Pro Max+ Pods",
+    brand: "Hayati",
+    category: "Prefilled Pods",
+    image: "https://vaporizerhut.co.uk/cdn/shop/files/Blackberry_Raspberry_Hayati_Pro_Max_Pods_grande.png?v=1752238216",
+    description:
+      "Explore the Hayati Pro Max+ Pods product range.",
+
+    variants: [
+      {
+        id: "strawberry-kiwi",
+        name: "Strawberry Kiwi",
+        flavour: "Strawberry Kiwi",
+        image: "/products/strawberry-kiwi.webp",
+        strength: "20mg",
+        pack: "Pack of 5",
+      },
+      {
+        id: "blue-razz-ice",
+        name: "Blue Razz Ice",
+        flavour: "Blue Razz Ice",
+        image: "/products/blue-razz-ice.webp",
+        strength: "20mg",
+        pack: "Pack of 5",
+      },
+      {
+        id: "watermelon-ice",
+        name: "Watermelon Ice",
+        flavour: "Watermelon Ice",
+        image: "/products/watermelon-ice.webp",
+        strength: "20mg",
+        pack: "Pack of 5",
+      },
+    ],
+  },
+  {
+    id: "hayati-pro-max-pods",
+    name: "Hayati Pro Max+ Pods",
+    brand: "Hayati",
+    category: "Prefilled Pods",
+    image: "https://vaporizerhut.co.uk/cdn/shop/files/Blackberry_Raspberry_Hayati_Pro_Max_Pods_grande.png?v=1752238216",
+    description:
+      "Explore the Hayati Pro Max+ Pods product range.",
+
+    variants: [
+      {
+        id: "strawberry-kiwi",
+        name: "Strawberry Kiwi",
+        flavour: "Strawberry Kiwi",
+        image: "/products/strawberry-kiwi.webp",
+        strength: "20mg",
+        pack: "Pack of 5",
+      },
+      {
+        id: "blue-razz-ice",
+        name: "Blue Razz Ice",
+        flavour: "Blue Razz Ice",
+        image: "/products/blue-razz-ice.webp",
+        strength: "20mg",
+        pack: "Pack of 5",
+      },
+      {
+        id: "watermelon-ice",
+        name: "Watermelon Ice",
+        flavour: "Watermelon Ice",
+        image: "/products/watermelon-ice.webp",
+        strength: "20mg",
+        pack: "Pack of 5",
+      },
+    ],
+  },
+  {
+    id: "hayati-pro-max-pods",
+    name: "Hayati Pro Max+ Pods",
+    brand: "Hayati",
+    category: "Prefilled Pods",
+    image: "https://vaporizerhut.co.uk/cdn/shop/files/Blackberry_Raspberry_Hayati_Pro_Max_Pods_grande.png?v=1752238216",
+    description:
+      "Explore the Hayati Pro Max+ Pods product range.",
+
+    variants: [
+      {
+        id: "strawberry-kiwi",
+        name: "Strawberry Kiwi",
+        flavour: "Strawberry Kiwi",
+        image: "/products/strawberry-kiwi.webp",
+        strength: "20mg",
+        pack: "Pack of 5",
+      },
+      {
+        id: "blue-razz-ice",
+        name: "Blue Razz Ice",
+        flavour: "Blue Razz Ice",
+        image: "/products/blue-razz-ice.webp",
+        strength: "20mg",
+        pack: "Pack of 5",
+      },
+      {
+        id: "watermelon-ice",
+        name: "Watermelon Ice",
+        flavour: "Watermelon Ice",
+        image: "/products/watermelon-ice.webp",
+        strength: "20mg",
+        pack: "Pack of 5",
+      },
+    ],
+  },
+  {
+    id: "hayati-pro-max-pods",
+    name: "Hayati Pro Max+ Pods",
+    brand: "Hayati",
+    category: "Prefilled Pods",
+    image: "https://vaporizerhut.co.uk/cdn/shop/files/Blackberry_Raspberry_Hayati_Pro_Max_Pods_grande.png?v=1752238216",
+    description:
+      "Explore the Hayati Pro Max+ Pods product range.",
+
+    variants: [
+      {
+        id: "strawberry-kiwi",
+        name: "Strawberry Kiwi",
+        flavour: "Strawberry Kiwi",
+        image: "/products/strawberry-kiwi.webp",
+        strength: "20mg",
+        pack: "Pack of 5",
+      },
+      {
+        id: "blue-razz-ice",
+        name: "Blue Razz Ice",
+        flavour: "Blue Razz Ice",
+        image: "/products/blue-razz-ice.webp",
+        strength: "20mg",
+        pack: "Pack of 5",
+      },
+      {
+        id: "watermelon-ice",
+        name: "Watermelon Ice",
+        flavour: "Watermelon Ice",
+        image: "/products/watermelon-ice.webp",
+        strength: "20mg",
+        pack: "Pack of 5",
+      },
+    ],
+  },
+  {
+    id: "hayati-pro-max-pods",
+    name: "Hayati Pro Max+ Pods",
+    brand: "Hayati",
+    category: "Prefilled Pods",
+    image: "https://vaporizerhut.co.uk/cdn/shop/files/Blackberry_Raspberry_Hayati_Pro_Max_Pods_grande.png?v=1752238216",
+    description:
+      "Explore the Hayati Pro Max+ Pods product range.",
+
+    variants: [
+      {
+        id: "strawberry-kiwi",
+        name: "Strawberry Kiwi",
+        flavour: "Strawberry Kiwi",
+        image: "/products/strawberry-kiwi.webp",
+        strength: "20mg",
+        pack: "Pack of 5",
+      },
+      {
+        id: "blue-razz-ice",
+        name: "Blue Razz Ice",
+        flavour: "Blue Razz Ice",
+        image: "/products/blue-razz-ice.webp",
+        strength: "20mg",
+        pack: "Pack of 5",
+      },
+      {
+        id: "watermelon-ice",
+        name: "Watermelon Ice",
+        flavour: "Watermelon Ice",
+        image: "/products/watermelon-ice.webp",
+        strength: "20mg",
+        pack: "Pack of 5",
+      },
+    ],
+  },
+  {
+    id: "hayati-pro-max-pods",
+    name: "Hayati Pro Max+ Pods",
+    brand: "Hayati",
+    category: "Prefilled Pods",
+    image: "https://vaporizerhut.co.uk/cdn/shop/files/Blackberry_Raspberry_Hayati_Pro_Max_Pods_grande.png?v=1752238216",
+    description:
+      "Explore the Hayati Pro Max+ Pods product range.",
+
+    variants: [
+      {
+        id: "strawberry-kiwi",
+        name: "Strawberry Kiwi",
+        flavour: "Strawberry Kiwi",
+        image: "/products/strawberry-kiwi.webp",
+        strength: "20mg",
+        pack: "Pack of 5",
+      },
+      {
+        id: "blue-razz-ice",
+        name: "Blue Razz Ice",
+        flavour: "Blue Razz Ice",
+        image: "/products/blue-razz-ice.webp",
+        strength: "20mg",
+        pack: "Pack of 5",
+      },
+      {
+        id: "watermelon-ice",
+        name: "Watermelon Ice",
+        flavour: "Watermelon Ice",
+        image: "/products/watermelon-ice.webp",
+        strength: "20mg",
+        pack: "Pack of 5",
+      },
+    ],
+  },
+];
+
+
 
 export const categories = ["Refillable Pod Kits"];
 export const brands = ["Vaporesso", "Geekvape", "Hayati"];

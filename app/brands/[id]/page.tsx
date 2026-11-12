@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { products } from "@/lib/data";
 import ProductCard from "@/components/home/product-card";
+import BrandProductCard from "@/components/brand-product-card";
 
 const brands = [
   {
@@ -167,7 +168,7 @@ export default async function BrandDetailsPage({ params }: PageProps) {
   const brand = brands.find((item) => item.slug.toLowerCase() === normalizedId);
 
   const brandProducts = products.filter(
-    (product) => product.brand?.toLowerCase() === brand?.name.toLowerCase(),
+    (product) => product.brand.toLowerCase() === brand?.name.toLowerCase(),
   );
 
   if (!brand) {
@@ -308,8 +309,6 @@ export default async function BrandDetailsPage({ params }: PageProps) {
             </div>
           </div>
         </section>
-
-        {/* Product Catalogue */}
         {/* Product Catalogue */}
         <section className="px-4 py-12 sm:px-6 md:py-16 lg:px-8">
           <div className="mx-auto max-w-[1500px]">
@@ -333,10 +332,10 @@ export default async function BrandDetailsPage({ params }: PageProps) {
               </span>
             </div>
 
-            {brands.length > 0 ? (
-              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {brandProducts.length > 0 ? (
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                 {brandProducts.map((product) => (
-                  <ProductCard key={product.id} product={product} />
+                  <BrandProductCard key={product.id} product={product} />
                 ))}
               </div>
             ) : (
