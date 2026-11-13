@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState } from "react";
@@ -17,11 +16,7 @@ import {
   Building2,
 } from "lucide-react";
 
-export default function AuthForm({
-  mode,
-}: {
-  mode: "login" | "register";
-}) {
+export default function AuthForm({ mode }: { mode: "login" | "register" }) {
   const [sent, setSent] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -188,8 +183,8 @@ export default function AuthForm({
                 </h3>
 
                 <p className="mt-2 text-sm leading-6 text-[#69756f]">
-                  This is currently a demo form. Authentication is not
-                  connected yet.
+                  This is currently a demo form. Authentication is not connected
+                  yet.
                 </p>
 
                 <button
@@ -279,11 +274,7 @@ export default function AuthForm({
                       }
                       className="absolute right-4 top-1/2 -translate-y-1/2 text-[#98a49e] transition hover:text-[#079b57]"
                     >
-                      {showPassword ? (
-                        <EyeOff size={18} />
-                      ) : (
-                        <Eye size={18} />
-                      )}
+                      {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
                     </button>
                   </div>
                 </div>
@@ -352,8 +343,8 @@ export default function AuthForm({
 
                 {!isLogin && (
                   <p className="text-xs leading-5 text-[#87928c]">
-                    By creating an account, you agree to our website terms
-                    and privacy policy.
+                    By creating an account, you agree to our website terms and
+                    privacy policy.
                   </p>
                 )}
 
@@ -415,7 +406,7 @@ export default function AuthForm({
         </div>
 
         <p className="mt-8 text-center text-xs text-[#98a49e]">
-          © {new Date().getFullYear()} Global Bargain. All rights reserved.
+          © 2026 Global Bargain. All rights reserved.
         </p>
       </div>
     </section>
